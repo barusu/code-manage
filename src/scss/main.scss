@@ -34,7 +34,7 @@ header {
   .control {
     display: block;
     height: 30px;
-    background: hsla(0,0%,100%,.3);
+    background: hsla(0,0%,100%,.15);
     overflow: hidden;
     cursor: pointer;
   }
@@ -42,15 +42,18 @@ header {
     white-space: nowrap;
     font-size: $fzm;
     line-height: 40px;
-    height: 40px;
+    height: 0px;
+    overflow: hidden;
     color: $fcw;
     cursor: pointer;
+    transition: height 300ms;
     .icon {
       display: block;
       float: left;
-      width: 40px;
+      width: 50px;
       height: 100%;
-      padding-left: 10px;
+      padding: 0 10px;
+      text-align: center;
     }
     > span {
       position: relative;
@@ -112,7 +115,7 @@ header {
   height: 40px;
   line-height: 40px;
   padding-left: 10px;
-  background: hsla(0,0%,100%,.2);
+  background: hsla(0,0%,100%,.1);
   white-space: nowrap;
   color: $fcw;
   cursor: pointer;
@@ -175,6 +178,9 @@ input.sidebar-control:checked + .item {
     &::before {
       transform: rotate(90deg);
     }
+  }
+  .item-child {
+    height: 40px;
   }
 }
 

@@ -10,8 +10,18 @@
           <label for="sidebar_1" class="sidebar-item"><span>tets1</span></label>
           <ul class="item-wrapper">
             <li class="item-child">
-              <div class="icon"></div>
+              <div class="icon"><span class="icon-code"></span></div>
               <span>tets1-1</span>
+            </li>
+          </ul>
+        </div>
+        <input id="sidebar_2" type="checkbox" class="kakushi sidebar-control">
+        <div class="item">
+          <label for="sidebar_2" class="sidebar-item"><span>tets2</span></label>
+          <ul class="item-wrapper">
+            <li class="item-child">
+              <div class="icon"><span class="icon-code"></span></div>
+              <span>tets2-1</span>
             </li>
           </ul>
         </div>
