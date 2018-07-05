@@ -13,6 +13,14 @@
               <div class="icon"><span class="icon-code"></span></div>
               <span>tets1-1</span>
             </li>
+            <li class="item-child">
+              <div class="icon"><span class="icon-code"></span></div>
+              <span>tets1-2</span>
+            </li>
+            <li class="item-child">
+              <div class="icon"><span class="icon-code"></span></div>
+              <span>tets1-3</span>
+            </li>
           </ul>
         </div>
         <input id="sidebar_2" type="checkbox" class="kakushi sidebar-control">

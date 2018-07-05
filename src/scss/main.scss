@@ -46,7 +46,8 @@ header {
     overflow: hidden;
     color: $fcw;
     cursor: pointer;
-    transition: height 300ms;
+    opacity: 0;
+    transition: height 300ms, opacity 300ms 30ms;
     .icon {
       display: block;
       float: left;
@@ -181,6 +182,8 @@ input.sidebar-control:checked + .item {
   }
   .item-child {
     height: 40px;
+    opacity: 1;
+    overflow: visible;
   }
 }
 
