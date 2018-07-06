@@ -2,36 +2,25 @@
   <main>
     <header></header>
     <div class="content">
-      <input id="sidebar_control" type="checkbox" class="kakushi">
-      <div class="sidebar">
-        <label for="sidebar_control" class="control"><span class="icon-menu"></span></label>
-        <input id="sidebar_1" type="checkbox" class="kakushi sidebar-control">
-        <div class="item">
-          <label for="sidebar_1" class="sidebar-item"><span>tets1</span></label>
-          <ul class="item-wrapper">
-            <li class="item-child">
-              <div class="icon"><span class="icon-code"></span></div>
-              <span>tets1-1</span>
-            </li>
-            <li class="item-child">
-              <div class="icon"><span class="icon-code"></span></div>
-              <span>tets1-2</span>
-            </li>
-            <li class="item-child">
-              <div class="icon"><span class="icon-code"></span></div>
-              <span>tets1-3</span>
-            </li>
-          </ul>
-        </div>
-        <input id="sidebar_2" type="checkbox" class="kakushi sidebar-control">
-        <div class="item">
-          <label for="sidebar_2" class="sidebar-item"><span>tets2</span></label>
-          <ul class="item-wrapper">
-            <li class="item-child">
-              <div class="icon"><span class="icon-code"></span></div>
-              <span>tets2-1</span>
-            </li>
-          </ul>
+      <div class="sidebar" :class="{'close': close}">
+        <div class="sidebar-wrapper">
+          <div class="control" @click="close = !close"><span class="icon-menu"></span></div>
+          <div class="sidebar-item-wrapper">
+            <div>
+              <template v-for="(n, ni) in nav">
+                <input :id="'sidebar_' + ni" type="radio" name="sidebar_control" class="kakushi sidebar-control" :key="n.name">
+                <div class="item" :key="'el' + n.name">
+                  <label :for="'sidebar_' + ni" class="sidebar-item"><span v-html="n.name"></span></label>
+                  <ul class="item-wrapper" v-if="n.child">
+                    <li class="item-child" v-for="c in n.child"  :key="c.name">
+                      <div class="icon"><span :class="c.icon"></span></div>
+                      <span v-html="c.name"></span>
+                    </li>
+                  </ul>
+                </div>
+              </template>
+            </div>
+          </div>
         </div>
       </div>
       <div class="subsidiary"></div>
@@ -41,7 +30,37 @@
 </template>
 
 <script>
+import nav from '@/data/nav.json';
+
 export default {
-  name: 'App'
+  name: 'App',
+  data() {
+    return {
+      nav: [],
+      close: false,
+      clientHeight: 50
+    };
+  },
+  methods: {
+    init() {
+      this.nav = nav;
+    },
+    resize() {
+      this.clientHeight = document.body.clientHeight || document.documentElement.clientHeight;
+    }
+  },
+  computed: {
+    maxHeight() {
+      return this.clientHeight - 80 - this.nav.length * 40;
+    }
+  },
+  mounted() {
+    this.init();
+    this.resize();
+    window.addEventListener('resize', this.resize, false);
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.resize, false);
+  }
 }
 </script>
