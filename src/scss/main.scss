@@ -96,12 +96,12 @@ header {
     > div {
       padding-top: 30px;
       height: 100%;
-      width: $sider_width + 1rem;
+      width: $sider_width + 4rem;
       overflow-x: hidden;
       overflow-y: auto;
     }
     .item {
-      width: 180px;
+      width: $sider_width;
       transition: width 340ms;
     }
   }
@@ -112,6 +112,41 @@ header {
     }
     .icon-menu {
       transform: rotate(0deg);
+    }
+    .sidebar-item-wrapper {
+      width: $sider_width + 3rem;
+      .item {
+        width: $sider_width_min;
+      }
+    }
+    .item-child,
+    .sidebar-item {
+      > span {
+        opacity: 0;
+        border-radius: 4px;
+        pointer-events: none;
+        width: 0;
+      }
+      &:hover {
+        > span {
+          width: auto;
+          opacity: 1;
+          background: $c1;
+          margin-left: 20px;
+          padding: 0 1.5em;
+          pointer-events: all;
+          &::before {
+            border-right-color: $c1;
+          }
+        }
+      }
+    }
+    .item-child {
+      &:hover {
+        > span {
+          margin-left: 10px;
+        }
+      }
     }
   }
 }
