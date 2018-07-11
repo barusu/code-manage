@@ -8,14 +8,14 @@
           <div class="sidebar-item-wrapper">
             <div>
               <template v-for="(n, ni) in nav">
-                <input :id="'sidebar_' + ni" type="radio" name="sidebar_control" class="kakushi sidebar-control" :key="n.name">
+                <input :id="'sidebar_' + ni" type="checkbox" name="sidebar_control" class="kakushi sidebar-control" :key="n.name">
                 <div class="item" :key="'el' + n.name">
                   <label :for="'sidebar_' + ni" class="sidebar-item"><span v-html="n.name"></span></label>
                   <ul class="item-wrapper" v-if="n.child">
-                    <li class="item-child" v-for="c in n.child"  :key="c.name">
+                    <router-link :to="c.link" tag="li" class="item-child" v-for="c in n.child" :key="c.name">
                       <div class="icon"><span :class="c.icon"></span></div>
                       <span v-html="c.name"></span>
-                    </li>
+                    </router-link>
                   </ul>
                 </div>
               </template>

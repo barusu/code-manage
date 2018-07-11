@@ -1,0 +1,14 @@
+.container {
+  > .title {
+    font-size: $fz;
+    line-height: 2.5;
+    border-bottom: 1px solid $linec;
+    margin-bottom: 10px;
+    > span {
+      display: inline-block;
+      padding-left: 5px;
+      border-left: 2px solid $c;
+      line-height: 1;
+    }
+  }
+}

@@ -1,6 +1,22 @@
 [
   {
-    "name": "test1测试1测试1测试1测试1测试1测试1测试1",
+    "name": "Vue",
+    "child": [
+      {
+        "name": "Table",
+        "icon": "icon-table",
+        "link": "/table"
+      },
+      {
+        "name": "测试1-1",
+        "icon": "icon-code",
+        "link": "test",
+        "params": {"url": "http://lawliet.cc/2018-06-22/"}
+      }
+    ]
+  },
+  {
+    "name": "test1测试1",
     "child": [
       {
         "name": "测试1-1",

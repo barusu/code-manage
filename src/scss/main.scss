@@ -58,10 +58,11 @@ header {
     line-height: 40px;
     height: 0px;
     overflow: hidden;
-    color: $fcw;
+    color: darken($fcw, 25%);
     cursor: pointer;
     opacity: 0;
     transition: height 300ms, opacity 300ms 30ms;
+    pointer-events: all;
     .icon {
       display: block;
       float: left;
@@ -69,6 +70,15 @@ header {
       height: 100%;
       padding: 0 10px;
       text-align: center;
+    }
+    &:hover {
+      background: hsla(0,0%,100%,.05);
+      color: $fcw;
+    }
+    &.router-link-active {
+      background: hsla(0,0%,100%,.05);
+      color: $fcw;
+      cursor: default;
     }
     > span {
       position: relative;
@@ -93,6 +103,7 @@ header {
     height: 100%;
     width: $sider_width;
     overflow: hidden;
+    pointer-events: none;
     > div {
       padding-top: 30px;
       height: 100%;
@@ -150,12 +161,9 @@ header {
     }
   }
 }
-
-
 .container {
   overflow: hidden;
-  min-height: 2000px;
-  background: #000;
+  padding: 15px;
 }
 .kakushi {
   position: absolute;
@@ -200,6 +208,8 @@ header {
   white-space: nowrap;
   color: $fcw;
   cursor: pointer;
+  pointer-events: all;
+  transition: background 170ms;
   &::before {
     content: '';
     display: block;
@@ -230,46 +240,11 @@ header {
       transition: border 340ms;
     }
   }
+  &:hover {
+    background: $c;
+  }
 }
 // control
-input#sidebar_control:checked + .sidebar {
-  width: 50px;
-  .icon-menu {
-    transform: rotate(0deg);
-  }
-  .item {
-    width: 50px;
-  }
-  .item-child,
-  .sidebar-item {
-    > span {
-      opacity: 0;
-      border-radius: 4px;
-      pointer-events: none;
-      width: 0;
-    }
-    &:hover {
-      > span {
-        width: auto;
-        opacity: 1;
-        background: $c1;
-        margin-left: 20px;
-        padding: 0 1.5em;
-        pointer-events: all;
-        &::before {
-          border-right-color: $c1;
-        }
-      }
-    }
-  }
-  .item-child {
-    &:hover {
-      > span {
-        margin-left: 10px;
-      }
-    }
-  }
-}
 input.sidebar-control:checked + .item {
   .sidebar-item {
     &::before {
