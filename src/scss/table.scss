@@ -1,0 +1,18 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid $linec;
+  th {
+    border-bottom: 1px solid $linec;
+    text-align: left;
+    padding: 0 $fzs;
+    line-height: 2;
+    font-size: $fzm;
+    font-weight: 600;
+  }
+  td {
+    padding: 0 $fzs;
+    line-height: 2;
+    font-size: $fzs;
+  }
+}
