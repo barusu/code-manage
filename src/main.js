@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import '@/scss/style.scss';
+import oo from '@/components/base/index.js';
+Vue.use(oo);
 
 Vue.config.productionTip = false
 
